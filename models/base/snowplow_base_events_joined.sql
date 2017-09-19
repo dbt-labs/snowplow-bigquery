@@ -1,4 +1,8 @@
 
+{{ config(materialized='view') }}
+
+
+
 with events as (
 
     select * from {{ ref('snowplow_base_events') }}
@@ -11,8 +15,9 @@ web_page as (
 
 )
 
+-- colocate all events for a given session in the same date partition
 select *,
-    date_trunc(date(collector_tstamp), day) as date_day
+    date(min(collector_tstamp) over (partition by domain_sessionid)) as date_day
 
 from events
 join web_page using (event_id)
