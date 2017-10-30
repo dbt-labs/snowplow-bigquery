@@ -5,4 +5,4 @@ select
     name,
     value
 
-from {{ adapter.quote_schema_and_table('snowplow', 'submit_form_elements') }}
+from {{ var('snowplow:context:submit_form:elements') }}
