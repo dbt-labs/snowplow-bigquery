@@ -7,7 +7,8 @@
         materialized='date_partitioned_table',
         date_source='snowplow_days',
         date_field='date_day',
-        date_partitioned_base='snowplow_page_views',
+        date_partitioned_base_schema=this.schema,
+        date_partitioned_base_relation='snowplow_page_views',
         filter_output=False
     )
 }}

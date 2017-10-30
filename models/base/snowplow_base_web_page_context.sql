@@ -1,7 +1,7 @@
 
 with web_page as (
 
-  select * from {{ adapter.quote_schema_and_table('snowplow', 'web_page') }}
+  select * from {{ var('snowplow:context:web_page') }}
 
 )
 

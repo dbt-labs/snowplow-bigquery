@@ -20,3 +20,11 @@ models:
     snowplow_bq:
         base:
             materialized: ephemeral
+
+        vars:
+            "snowplow:context:web_page": null
+            "snowplow:context:submit_form:elements": null
+            "snowplow:context:submit_form": null
+            "snowplow:context:submit_form:classes": null
+            "snowplow:event_daily": null
+            "snowplow:event_all": null
