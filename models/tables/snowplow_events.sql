@@ -22,9 +22,6 @@ with all_events as (
 events as (
 
     select * from all_events
-    {% if target.name == 'dev' %}
-        where date(collector_tstamp) > date_sub(current_date, interval 3 day)
-    {% endif %}
 
 ),
 
